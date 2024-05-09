@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .demo1{
+            height: 50px;
+            background-color: skyblue;
+        }
+        .box1{
+            padding: 5px;
+            background-color: skyblue;
+        }
+        .box2{
+            padding: 5px;
+            background-color: orange;
+        }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: peru;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+</head>
+<!-- 
+    Vue 中的事件修饰符:
+    1.prevent：阻止默认事件（常用）
+    2.stop：阻止事件冒泡（常用）
+    3.once：事件只触发一次（常用）
+    4.capture：使用事件的捕获模式
+    5.self：只有event.target是当前操作的元素时才触发事件
+    6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+ -->
+
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello</h1>
+        <!--     1.prevent：阻止默认事件（常用） -->
+        <a href="http://www.atguigu.com" @click.prevent="showInfo">点我提示信息</a>
+        <!--     2.stop：阻止事件冒泡（常用） -->
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点我提示信息</button>
+        </div>
+        <!--     3.once：事件只触发一次（常用） -->
+        <button @click.once="showInfo">点我提示信息</button>
+        <!--     4.capture：使用事件的捕获模式 -->
+        <div class="box1">
+            div1
+            <div class="box2">
+                div2
+            </div>
+        </div>
+        <!--     5.self：只有event.target是当前操作的元素时才触发事件 -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">点我提示信息</button>
+        </div>
+
+        <!--     6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+
+        <ul @wheel.passive="demo" class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示。
+        //创建Vue实例
+        new Vue({
+            el: '#root', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串。
+            data: { //data中用于存储数据，数据供el所指定的容器去使用，值我们暂时先写成一个对象。
+            },
+            methods: {
+                showInfo() {
+                    alert('同学你好')
+                },
+                demo(){
+                    for(let i=0;i<100000;i++){
+                        console.log('#')
+                    }
+                    console.log("累坏了")
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
