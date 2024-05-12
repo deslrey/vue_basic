@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>姓名案例_插值语法实现</title>
+    <title>姓名案例_methods实现</title>
     <!-- 引入Vue -->
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
@@ -13,7 +13,7 @@
     <div id="root">
         姓 : <input type="text" v-model="fiastName"> <br />
         名 : <input type="text" v-model="lastName" /> <br />
-        全名 : <span>{{fiastName}} - {{lastName}}</span>
+        全名 : <span>{{fullName()}}</span>
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示。
@@ -23,7 +23,12 @@
             data: { //data中用于存储数据，数据供el所指定的容器去使用，值我们暂时先写成一个对象。
                 fiastName: '张',
                 lastName: '三'
-            }
+            },
+            methods: {
+                fullName() {
+                    return this.fiastName + '-' + this.lastName
+                }
+            },
         });
     </script>
 </body>
