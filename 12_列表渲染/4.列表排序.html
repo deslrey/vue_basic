@@ -16,7 +16,7 @@
         <button @click="soryType = 1">年龄降序</button>
         <button @click="soryType = 0">原顺序</button>
         <ul>
-            <li v-for="(p,index) of filPerons" :key="index">
+            <li v-for="(p,index) of filPerons" :key="p.id">
                 {{p.name}}-{{p.age}}-{{p.sex}}
             </li>
         </ul>
