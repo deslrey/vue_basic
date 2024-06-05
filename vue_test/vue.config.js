@@ -1,5 +1,9 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
-  lintOnSave:false
-})
+module.exports = {
+  pages: {
+    index: {
+      // page 的入口
+      entry: 'src/peiqi.js',
+    },
+  },
+  lintOnSave: false
+}
