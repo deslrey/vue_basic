@@ -1,16 +1,27 @@
 <template>
     <ul class="todo-main">
-        <MyItem />
+        <MyItem v-for="todoObj in todos" :key="todoObj.id" :todo="todoObj" />
     </ul>
 </template>
 
 <script>
-import MyItem from '../components/MyItem'
+import MyItem from './MyItem'
 
 export default {
     name: 'List',
 
-    components: { MyItem }
+    components: { MyItem },
+
+    data() {
+        return {
+            todos: [
+                { id: '001', title: '唱', done: true },
+                { id: '002', title: '跳', done: false },
+                { id: '003', title: 'RAP', done: true },
+                { id: '004', title: '篮球', done: false },
+            ]
+        }
+    },
 }
 </script>
 
