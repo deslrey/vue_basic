@@ -12,16 +12,8 @@ export default {
 
     components: { MyItem },
 
-    data() {
-        return {
-            todos: [
-                { id: '001', title: '唱', done: true },
-                { id: '002', title: '跳', done: false },
-                { id: '003', title: 'RAP', done: true },
-                { id: '004', title: '篮球', done: false },
-            ]
-        }
-    },
+    props: ['todos']
+
 }
 </script>
 
