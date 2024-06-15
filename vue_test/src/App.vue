@@ -3,7 +3,7 @@
         <div class="todo-container">
             <div class="todo-wrap">
                 <MyHeader :addTodo="addTodo" />
-                <List :todos="todos" />
+                <List :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
                 <MyFooter />
             </div>
         </div>
@@ -30,8 +30,17 @@ export default {
         }
     },
     methods: {
+        // 添加一个 todo
         addTodo(todoObj) {
             this.todos.unshift(todoObj)
+        },
+        // 勾选 or 取消勾选一个 todo
+        checkTodo(id) {
+
+        },
+        // 删除一个 todo
+        deleteTodo(id) {
+            this.todos = this.todos.filter(todo => todo.id !== id)
         }
     }
 }
@@ -44,7 +53,7 @@ body {
 }
 
 .btn {
-    display: inline-block;
+    /* display: inline-block; */
     padding: 4px 12px;
     margin-bottom: 0;
     font-size: 14px;
