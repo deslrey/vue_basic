@@ -5,13 +5,14 @@ import App from "./App.vue"
 
 // 关闭Vue的生产提示
 Vue.config.productionTip = false
+
+
+
 // 创建 vm
 new Vue({
     el: '#app',
     render: h => h(App),
-    // mounted() {
-    //     setTimeout(() => {
-    //         this.$destroy
-    //     }, 3000)
-    // }
+    beforeCreate() {
+        Vue.prototype.$bus = this
+    }
 })
