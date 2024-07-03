@@ -21,17 +21,17 @@ export default {
     },
     computed: {
         personList() {
-            return this.$store.state.personList
+            return this.$store.state.personAbout.personList
         },
         sum() {
-            return this.$store.state.sum
+            return this.$store.state.countAbout.sum
         }
     },
     methods: {
         add() {
             const personObj = { id: nanoid(), name: this.name }
             console.log(personObj);
-            this.$store.commit('ADD_PERSON', personObj)
+            this.$store.commit('personAbout/ADD_PERSON', personObj)
             this.name = ''
         }
     },
