@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "pubsub.js": "^1.5.2"
+    "pubsub.js": "^1.5.2",
+    "vue-router": "^3.6.5"
   }
 }
