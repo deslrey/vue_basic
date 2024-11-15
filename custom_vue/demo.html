@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/custom_vue/vue.js"></script>
+    <title>Demo</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        const app = new Vue({
+            el: document.getElementById('app'),
+            data: {
+                message: 'Hello World!!!'
+            },
+            render() {
+                // 使用 text 来渲染纯文本
+                return new VNode('div', {}, [], this.data.message);
+            },
+        });
+    </script>
+
+</body>
+
+</html>
